@@ -1,0 +1,80 @@
+.blockContainer {
+  position: relative;
+  height: 200px;
+  width: 400px;
+}
+
+/*
+-----------------------------------------------------------------------
+  Animation with keyframes
+ */
+.block_1 {
+  position: absolute;
+  background-color: cyan;
+  width: 100px;
+  height: 100px;
+}
+
+.blockAnimation_1 {
+  animation-name: block1;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes block1 {
+  0% {background-color: cyan; left: 0px; top: 0px; border-radius: 0%;}
+  25% {background-color: yellow; left: 25px; top: 0px;border-radius: 25%;}
+  50% {background-color: purple; left: 25px; top: 25px; border-radius: 50%;}
+  75% {background-color: orange; left: 0px; top: 25px; border-radius: 25%}
+  100% {background-color: red; left: 0px; top: 0px; border-radius: 0%;}
+}
+/*
+-----------------------------------------------------------------------
+ */
+
+ /*
+ -----------------------------------------------------------------------
+   Transition
+  */
+
+.block_2 {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  transition-property: background-color, border-radius, transform;
+  transition-duration: 3s, 1s, 1s;
+  // transition-delay: 1s;
+  transition-timing-function: cubic-bezier(.87,.2,.99,.49);
+}
+
+.blockAnimation_2 {
+  background-color: magenta;
+  border-radius: 50%;
+  /*
+    Transform properties:
+    translate
+      x, y in pixels
+    rotate
+      Deg - degrees
+      Radians - multiple of pi
+    scale
+      multiple e.g. 2x
+   */
+  transform: rotate(45rad) translate(100px, 100px) scale(2);
+}
+
+
+.block_3 {
+  background-color: magenta;
+  width: 100px;
+  height: 100px;
+  perspective: 100px;
+  transition-property: transform background-color;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(.87,.2,.99,.49);
+}
+
+.blockAnimation_3 {
+  transform: translate3d(0, 0, 100px)
+}

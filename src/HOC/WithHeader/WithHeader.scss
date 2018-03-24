@@ -1,0 +1,10 @@
+@import '../../Style/_variables.scss';
+
+.header {
+  font-size: 24px;
+  hr {
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(left, $grey-light, black 50%, $grey-light);
+  }
+}

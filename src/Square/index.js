@@ -18,7 +18,6 @@ class Square extends Component {
     return (
       <div className={'blocksContainer'}>
         <div className={style.checkboxContainer}>
-          <h3>{name}</h3>
           <div>
             <input
               name={name}

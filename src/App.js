@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Link } from 'react-router-dom';
 
+import WithHeader from './HOC/WithHeader';
+
 import Cube from './Cube';
 import Square from './Square';
 import style from './App.scss';
@@ -40,9 +42,15 @@ class App extends Component {
                   render={() => (
                     <div className={style.content}>
                       {name.includes('cube') ? (
-                        <Cube name={name} />
+                        <WithHeader
+                          content={<Cube name={name} />}
+                          name={name}
+                        />
                       ) : (
-                        <Square name={name} />
+                        <WithHeader
+                          content={<Square name={name} />}
+                          name={name}
+                        />
                       )}
                     </div>
                   )}

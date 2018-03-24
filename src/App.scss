@@ -1,7 +1,9 @@
 $grey-light: rgb(200, 200, 200);
 
 .App {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr 9fr;
+  grid-auto-columns: min-content;
 }
 
 .checkboxContainer {
@@ -14,7 +16,7 @@ $grey-light: rgb(200, 200, 200);
 }
 
 .divider {
-  margin-left: 10px;
+  margin: 10px 0;
   border: none;
   min-height: 100vh;
   height: auto;
@@ -23,10 +25,23 @@ $grey-light: rgb(200, 200, 200);
 }
 
 .sidebar {
+  align-self: start;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-
+  margin: 10px 20px;
+  // Sidebar title
+  > h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  // Sidebar divider
+  > hr {
+    margin: 10px auto;
+    border: none;
+    width: 40%;
+    height: 1px;
+    background-image: linear-gradient(left, $grey-light, black 50%, $grey-light);
+  }
   // Component Links
   > a {
     position: relative;

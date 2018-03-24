@@ -10,7 +10,7 @@ class App extends Component {
     super();
 
     this.state = {
-      elements: ['cube', 'block']
+      elements: ['block', 'cube']
     };
   }
 
@@ -22,6 +22,7 @@ class App extends Component {
           {/* Links */}
           <div className={style.sidebar}>
             <h2>Components</h2>
+            <hr />
             {elements.map(name => (
               <Link key={name} to={name}>
                 {name}
@@ -36,11 +37,15 @@ class App extends Component {
                 <Route
                   path={'/' + name}
                   key={String(name)}
-                  render={
-                    name.includes('cube')
-                      ? () => <Cube name={name} />
-                      : () => <Square name={name} />
-                  }
+                  render={() => (
+                    <div className={style.content}>
+                      {name.includes('cube') ? (
+                        <Cube name={name} />
+                      ) : (
+                        <Square name={name} />
+                      )}
+                    </div>
+                  )}
                 />
               );
             })}

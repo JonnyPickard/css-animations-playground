@@ -20,28 +20,31 @@ class App extends Component {
       <BrowserRouter location="/">
         <div className={style.App}>
           {/* Links */}
-          <div className={style.links}>
+          <div className={style.sidebar}>
+            <h2>Components</h2>
             {elements.map(name => (
               <Link key={name} to={name}>
                 {name}
               </Link>
             ))}
           </div>
-          <hr />
+          <hr className={style.divider} />
           {/*  Routes / Components */}
-          {elements.map(name => {
-            return (
-              <Route
-                path={'/' + name}
-                key={String(name)}
-                render={
-                  name.includes('cube')
-                    ? () => <Cube name={name} />
-                    : () => <Square name={name} />
-                }
-              />
-            );
-          })}
+          <div className={style.elementsContainer}>
+            {elements.map(name => {
+              return (
+                <Route
+                  path={'/' + name}
+                  key={String(name)}
+                  render={
+                    name.includes('cube')
+                      ? () => <Cube name={name} />
+                      : () => <Square name={name} />
+                  }
+                />
+              );
+            })}
+          </div>
         </div>
       </BrowserRouter>
     );

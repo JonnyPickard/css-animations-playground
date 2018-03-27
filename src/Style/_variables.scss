@@ -12,3 +12,9 @@ $grey: rgb(245, 245, 245);
 $grey-light: rgb(200, 200, 200);
 
 $media-min: "screen and (min-width: 480px)";
+
+$linear-gradient-horizontal: linear-gradient(left, $grey-light, black 50%, $grey-light);
+
+@mixin linear-gradient-vertical {
+  background-color: linear-gradient(top, $grey-light, black 50%, $grey-light);
+}

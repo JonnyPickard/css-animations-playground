@@ -16,7 +16,7 @@ class Square extends Component {
     const { isAnimating, transitionIndex } = this.state;
 
     return (
-      <div className={'blocksContainer'}>
+      <div className={style.blocksContainer}>
         <div className={style.checkboxContainer}>
           <div>
             <input

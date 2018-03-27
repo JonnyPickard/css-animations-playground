@@ -5,6 +5,8 @@ import WithHeader from './HOC/WithHeader';
 
 import Cube from './Cube';
 import Square from './Square';
+import Tabs from './Tabs';
+
 import style from './App.scss';
 
 class App extends Component {
@@ -12,9 +14,27 @@ class App extends Component {
     super();
 
     this.state = {
-      elements: ['block', 'cube']
+      elements: ['block', 'cube', 'tabs'],
+      tabs: ['Tab', 'A Long String Tab', 'A Tabby Tab']
     };
   }
+
+  renderElement = name => {
+    if (name.includes('cube')) {
+      return <WithHeader content={<Cube name={name} />} name={name} />;
+    } else if (name.includes('block')) {
+      return <WithHeader content={<Square name={name} />} name={name} />;
+    } else if (name.includes('tabs')) {
+      return (
+        <WithHeader
+          content={<Tabs name={name} tabs={this.state.tabs} />}
+          name={name}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
 
   render() {
     const { elements } = this.state;
@@ -41,17 +61,7 @@ class App extends Component {
                   key={String(name)}
                   render={() => (
                     <div className={style.content}>
-                      {name.includes('cube') ? (
-                        <WithHeader
-                          content={<Cube name={name} />}
-                          name={name}
-                        />
-                      ) : (
-                        <WithHeader
-                          content={<Square name={name} />}
-                          name={name}
-                        />
-                      )}
+                      {this.renderElement(name)}
                     </div>
                   )}
                 />

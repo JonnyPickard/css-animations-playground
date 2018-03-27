@@ -1,7 +1,13 @@
-.blockContainer {
+@import '../Style/_variables.scss';
+
+.blocksContainer {
   position: relative;
-  height: 200px;
-  width: 400px;
+  > hr {
+    border: none;
+    margin: 20px 40% 20px 0;
+    height: 1px;
+    background-image: linear-gradient(left, $grey-light, black 50%, $grey-light);
+  }
 }
 
 /*
